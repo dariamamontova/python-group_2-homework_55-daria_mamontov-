@@ -1,28 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Burger from './components/Burger/Burger';
+
+const availableIngredients = [
+    {name: 'salad', price: 5, label: 'Салат'},
+    {name: 'cheese', price: 20, label: 'Сыр'},
+    {name: 'meat', price: 30, label: 'Мясо'},
+    {name: 'bacon', price: 20, label: 'Бекон'}
+];
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    state = {
+        ingredients: {
+            salad: {count: 1, total: 0},
+            cheese: {count: 2, total: 0},
+            meat: {count: 2, total: 0},
+            bacon: {count: 1, total: 0}
+        }
+    };
+
+
+
+    render() {
+        return (
+            <div className="App">
+                <Burger ingredients={this.state.ingredients}/>
+            </div>
+        );
+    }
 }
 
 export default App;
