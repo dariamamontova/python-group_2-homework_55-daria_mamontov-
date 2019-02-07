@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Burger from './components/Burger/Burger';
-import IngredientControl from './components/BurgerForm/IngredientControl';
+import IngredientControl from './components/BurgerForm/IngredientControl/IngredientControl';
 import BurgerForm from './components/BurgerForm/BurgerForm';
 
 const availableIngredients = [

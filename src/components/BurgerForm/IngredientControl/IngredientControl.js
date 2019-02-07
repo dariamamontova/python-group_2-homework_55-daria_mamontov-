@@ -1,5 +1,5 @@
 import React from 'react';
-import './BurgerForm.css';
+import '../BurgerForm.css';
 
 
 function IngredientControl(props) {
