@@ -15,10 +15,10 @@ const availableIngredients = [
 class App extends Component {
     state = {
         ingredients: {
-            salad: {count: 0, total: 0, label: 'Салат', price: 5},
-            cheese: {count: 0, total: 0, label: 'Сыр', price: 20},
-            meat: {count: 0, total: 0, label: 'Мясо', price: 30},
-            bacon: {count: 0, total: 0, label: 'Бекон', price: 20}
+            salad: {count: 0, total: 0},
+            cheese: {count: 0, total: 0},
+            meat: {count: 0, total: 0},
+            bacon: {count: 0, total: 0}
         },
     };
 
@@ -61,6 +61,10 @@ class App extends Component {
         return sum;
     };
 
+    isButtonDisabled = (name) => {
+        let ingredient = {...this.state.ingredients[name]};
+        return ingredient.count <= 0;
+    }
 
     render() {
         return (
@@ -68,6 +72,7 @@ class App extends Component {
                 <Burger ingredients={this.state.ingredients}/>
                 <BurgerForm getTotal={this.getTotal}>
                     {availableIngredients.map(item => <IngredientControl name={item.name}
+                     isRemoveButtonDisabled={this.isButtonDisabled(item.name)}
                      onAddIngredient={() => this.addIngredient(item.name)}
                      onRemoveIngredient={() => this.removeIngredient(item.name)}/>)}
                 </BurgerForm>
